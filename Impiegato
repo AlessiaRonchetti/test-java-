@@ -1,0 +1,60 @@
+import java.util.ArrayList;
+
+public class Impiegato {
+
+	private String nome;
+	private int salario;
+	private static ArrayList<Impiegato> impiegati;
+
+	public Impiegato(String nome, int salario) {
+		this.nome = nome;
+		this.salario = salario;
+		impiegati.add(this);
+		
+	}
+
+	public void stampaDettagli() {
+		System.out.println("Nome: " + nome);
+		System.out.println("Salario: " + salario);
+	}
+
+	
+}
+
+class Manager extends Impiegato {
+
+	private int bonus;
+
+	public Manager(String nome, int salario, int bonus) {
+		super(nome, salario);
+		this.bonus = bonus;
+	}
+
+	@Override
+	public void stampaDettagli() {
+		super.stampaDettagli();
+		System.out.println("Bonus: " + bonus);
+	}
+
+}
+
+class Main {
+
+	public static void main(String[] args) {
+
+        ArrayList<Impiegato> impiegati = new ArrayList<>();
+
+        Impiegato i1 = new Impiegato("Pippo", 3000);
+        Manager m1 = new Manager("Alessia Ronchetti", 5000, 1000);
+
+        impiegati.add(i1);
+        impiegati.add(m1);
+
+        System.out.println("Dettagli di tutti gli impiegati:");
+        for (Impiegato impiegato : impiegati) {
+			impiegato.stampaDettagli();
+			System.out.println();
+		
+    }
+	}
+}
