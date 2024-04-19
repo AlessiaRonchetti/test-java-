@@ -1,4 +1,9 @@
+//possibilità di ottimizzazione creando metodi astratti che mi ritornano un tipo da implementare nelle sottoclassi di Media.
+
+
 public abstract class Media {
+	
+	
     private String titolo;
     private int annoDiPubblicazione;
 
@@ -23,7 +28,11 @@ public abstract class Media {
         this.annoDiPubblicazione = annoDiPubblicazione;
     }
 
-    public abstract void stampaDettagli();
+    public abstract void stampaDettagli();  //metodo che mi ritorna void per la stampa
+    
+    //possibilità di ottimizzazione creando metodi astratti che mi ritornano un tipo da implementare nelle sottoclassi di Media.
+    
+    
 }
 
 
@@ -131,7 +140,7 @@ class Rivista extends Media {
 
 
 
-class Main{
+class Mainn{
     public static void main(String[] args) {
         Libro libro = new Libro("Il signore degli anelli", 1954, "J.R.R. Tolkien", 1178);
         DVD dvd = new DVD("Inception", 2010, "Christopher Nolan", 148);
