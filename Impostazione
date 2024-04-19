@@ -1,0 +1,74 @@
+public class Impostazione {
+	private String chiave;
+	private String valore;
+
+	public Impostazione(String chiave, String valore) {
+		this.chiave = chiave;
+		this.valore = valore;
+	}
+
+	public String getChiave() {
+		return chiave;
+	}
+
+	public void setChiave(String chiave) {
+		this.chiave = chiave;
+	}
+
+	public String getValore() {
+		return valore;
+	}
+
+	public void setValore(String valore) {
+		this.valore = valore;
+	}
+
+	public void applica(String chiaveApplicazione, String valoreApplicazione) {
+		setChiave(chiaveApplicazione);
+		setValore(valoreApplicazione);
+
+		System.out.println("La chiave è: " + chiaveApplicazione + ". Il cui valore è: " + valoreApplicazione);
+	}
+}
+
+class ImpostazioneBooleana extends Impostazione {
+	private boolean valoreBooleano;
+
+	public ImpostazioneBooleana(String chiave, boolean valoreBooleano) {
+		super(chiave, null);
+		this.valoreBooleano = valoreBooleano;
+	}
+
+	public boolean isValoreBooleano() {
+		return valoreBooleano;
+	}
+
+	public void setValoreBooleano(boolean valoreBooleano) {
+		this.valoreBooleano = valoreBooleano;
+	}
+
+	public void applica() {
+		if (isValoreBooleano()) {
+			System.out.println("La chiave è: " + getChiave());
+		} else {
+			System.out.println("L'applicazione non è supportata per le impostazioni booleane.");
+		}
+	}
+}
+
+class ImpostazioneNumerica extends Impostazione {
+	public ImpostazioneNumerica(String chiave, String valore) {
+		super(chiave, valore);
+	}
+
+	public void applica(String chiaveApplicazione, String valoreApplicazione) {
+		
+			int valoreNumerico = Integer.parseInt(valoreApplicazione);
+			setChiave(chiaveApplicazione);
+			setValore(Integer.toString(valoreNumerico));
+
+			System.out.println("La chiave è: " + chiaveApplicazione + ". Il cui valore è: " + valoreNumerico);
+		
+		
+	}
+}
