@@ -1,0 +1,144 @@
+public abstract class Media {
+    private String titolo;
+    private int annoDiPubblicazione;
+
+    public String getTitolo() {
+        return titolo;
+    }
+
+    public void setTitolo(String titolo) {
+        this.titolo = titolo;
+    }
+
+    public int getAnnoDiPubblicazione() {
+        return annoDiPubblicazione;
+    }
+
+    public void setAnnoDiPubblicazione(int annoDiPubblicazione) {
+        this.annoDiPubblicazione = annoDiPubblicazione;
+    }
+
+    public Media(String titolo, int annoDiPubblicazione) {
+        this.titolo = titolo;
+        this.annoDiPubblicazione = annoDiPubblicazione;
+    }
+
+    public abstract void stampaDettagli();
+}
+
+
+
+
+
+class Libro extends Media {
+    private String autore;
+    private int numeroPagine;
+
+    public String getAutore() {
+        return autore;
+    }
+
+    public void setAutore(String autore) {
+        this.autore = autore;
+    }
+
+    public int getNumeroPagine() {
+        return numeroPagine;
+    }
+
+    public void setNumeroPagine(int numeroPagine) {
+        this.numeroPagine = numeroPagine;
+    }
+
+    public Libro(String titolo, int annoDiPubblicazione, String autore, int numeroPagine) {
+        super(titolo, annoDiPubblicazione);
+        this.autore = autore;
+        this.numeroPagine = numeroPagine;
+    }
+
+    @Override
+    public void stampaDettagli() {
+        System.out.println("Libro: " + getTitolo() + " Autore: " + getAutore() + " Anno: " + getAnnoDiPubblicazione() + " Pagine: " + numeroPagine);
+    }
+}
+
+class DVD extends Media {
+    private String regista;
+    private int durata; // in minuti
+
+    public String getRegista() {
+        return regista;
+    }
+
+    public void setRegista(String regista) {
+        this.regista = regista;
+    }
+
+    public int getDurata() {
+        return durata;
+    }
+
+    public void setDurata(int durata) {
+        this.durata = durata;
+    }
+
+    public DVD(String titolo, int annoDiPubblicazione, String regista, int durata) {
+        super(titolo, annoDiPubblicazione);
+        this.regista = regista;
+        this.durata = durata;
+    }
+
+    @Override
+    public void stampaDettagli() {
+        System.out.println("DVD: " + getTitolo() + " Regista: " + getRegista() + " Anno: " + getAnnoDiPubblicazione() + " Durata: " + getDurata() + " min");
+    }
+}
+
+
+
+
+class Rivista extends Media {
+    private int numeroEdizione;
+    private String frequenzaPubblicazione;
+
+    public int getNumeroEdizione() {
+        return numeroEdizione;
+    }
+
+    public void setNumeroEdizione(int numeroEdizione) {
+        this.numeroEdizione = numeroEdizione;
+    }
+
+    public String getFrequenzaPubblicazione() {
+        return frequenzaPubblicazione;
+    }
+
+    public void setFrequenzaPubblicazione(String frequenzaPubblicazione) {
+        this.frequenzaPubblicazione = frequenzaPubblicazione;
+    }
+
+    public Rivista(String titolo, int annoDiPubblicazione, int numeroEdizione, String frequenzaPubblicazione) {
+        super(titolo, annoDiPubblicazione);
+        this.numeroEdizione = numeroEdizione;
+        this.frequenzaPubblicazione = frequenzaPubblicazione;
+    }
+
+    @Override
+    public void stampaDettagli() {
+        System.out.println("Rivista: " + getTitolo() + " Numero edizione: " + getNumeroEdizione() + " Anno: " + getAnnoDiPubblicazione() + " Frequenza: " + getFrequenzaPubblicazione());
+    }
+}
+
+
+
+class Main{
+    public static void main(String[] args) {
+        Libro libro = new Libro("Il signore degli anelli", 1954, "J.R.R. Tolkien", 1178);
+        DVD dvd = new DVD("Inception", 2010, "Christopher Nolan", 148);
+        Rivista rivista = new Rivista("National Geographic", 1888, 4, "Mensile");
+
+        libro.stampaDettagli();
+        dvd.stampaDettagli();
+        rivista.stampaDettagli();
+    }
+}
